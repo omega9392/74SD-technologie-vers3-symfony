@@ -1,0 +1,57 @@
+ <body id="page-top">
+
+  <!--/ Début du bloc de Navigation /-->
+  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
+    <!-- Le bloc principal CONTAINER -->
+    <div class="container">
+      <!-- Le bouton retour Haut de page -->
+      {# <a class="navbar-brand js-scroll" href="index.php"> #}
+      <img src="{{asset('/img/SD74LoGo.png')}}"  width="100" height="100"</a>
+      <!-- Dénition du type de menu Bootstrap utilisé -->
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+        aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- Le bloc des différents Items du menu -->
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+        <!-- La liste UL LI + les A de navigation -->
+        <ul class="navbar-nav"> <!-- La liste UL LI des Items du menu -->
+          <li class="nav-item">
+            <!-- Le lien hypertexte pour Accueil -->
+            <a class="nav-link js-scroll " href="{{path('app_Accueil')}}">Accueil</a>
+          </li>
+          <!-- Le lien hypertexte pour la section A propos -->
+          {# <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{path('app_liste_contact')}}">Liste-Contact</a>
+          </li> #}
+          {# <!-- Le lien hypertexte pour la section Compétences -->
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{path('app_service')}}">La Boutique</a>
+          </li> #}
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{path('app_comad_pc')}}">Vos Commandes</a>
+          </li>
+          <!-- Le lien hypertexte pour la section Expériences -->
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll" href="#work">Nos Ordinateurs</a>
+          </li> -->
+          <!-- Le lien hypertexte de la section formulaire Contact -->
+          <li class="nav-item">
+            <a class="nav-link js-scroll" href="{{path('app_contact')}}">Contact</a>
+          </li>
+        </ul> <!-- Fin de la liste UL LI des Items du menu --> 
+      </div> <!-- Fin du bloc DIV type du menu Bootstrap -->
+    </div> <!-- Fin du bloc DIV Container -->
+     <!--debut html mode DARK-->
+     <div>
+      <input type="checkbox" class="checkbox" id="checkbox">
+    <label for="checkbox" class="label">
+      <i class="fas fa-moon"></i>
+      <i class='fas fa-sun'></i>
+      <div class='ball'>
+    </label>
+  </div>
+  <!--fin html du mode DARK-->
+  </nav> <!-- Fin du bloc DIV NavBar -->

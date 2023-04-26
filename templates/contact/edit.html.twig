@@ -1,0 +1,54 @@
+{% extends 'back.html.twig' %}
+
+
+{% block title %}Edit Contact{% endblock %}
+
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   <h1>Edit Contact</h1>
+
+
+  
+                          <div class="form-group">
+           {# <div class="col-md-12 mb-3"> #}
+           {{ form_start(form) }}
+             {{ form_row(form.nom, { attr: { class:"form-control", placeholder: "Votre Nom Et Prénoms"} }) }}           {# </div>                             #}
+           <div class="validation"></div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                          <div class="form-group">
+           {# <div class="col-md-12 mb-3"> #}
+       {{ form_row(form.email, { attr: { class:"form-control", placeholder: "Votre Email"} }) }}
+           {# </div>                             #}
+           <div class="validation"></div>
+                          </div>
+                        </div>
+                        {# <div class="col-md-12 mb-3">
+                            <div class="form-group">
+                              <input pattern="[a-zA-Z ]{20,60}" title="Veuillez écrire un minum de 20 caractéres"  type="text" class="form-control" name="subject" id="subject" placeholder="Sujet"  />
+                              <div class="validation"></div>
+                            </div>
+                        </div> #}
+                        <div class="col-md-12 mb-3">
+                          <div class="form-group">
+            {# <div class="col-md-12 mb-3">  #}
+       {{ form_row(form.message, { attr: { class:"form-control", placeholder: "Votre Message"} }) }}
+           {# </div>                             #}
+           <div class="validation"></div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button type="submit" class="button button-a button-big button-rouded">Envoyer</a></button>
+                        </div>
+                        
+                      </div>
+                      {{ form_end(form) }}
+
+{% endblock %}

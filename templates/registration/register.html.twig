@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrer{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="container">
+     <div class="row">
+       <div class="col-sm-6 offset-sm-3 mt-5 pt-5">
+         <h1 class="text-center">Inscription</h1>
+
+
+    {{ form_start(registrationForm) }}
+         {{ form_row(registrationForm.nom) }}
+       {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+    <button class="btn btn-lg btn-primary" type="submit">Enregistrer</button>
+
+        {# <button type="submit" class="btn"> #}
+    {{ form_end(registrationForm) }}
+    
+
+        </div>
+     </div>
+   </div>
+
+{% endblock %}
