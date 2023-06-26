@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}>https://www.74SD-technologie.fr{% endblock %}</title>
+        <title>{% block title %}Vente en ligne d'articles higth-tech-74SD-tecnhlogie{% endblock %}</title>
         <link rel="icon" href="{{ asset('/data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>') }}">
         <!-- Favicons -->
   <link href="{{ asset('/img/SD74LoGo.png') }}" rel="icon">
@@ -29,6 +29,8 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
         <link href="{{ asset('/css/style.css')}}" rel="stylesheet">
+                <link href="{{ asset('/css1/recapt.css')}}" rel="stylesheet">
+
     </head>
     <body id="page-top">
 
@@ -60,7 +62,7 @@
           </li>
           <!-- Le lien hypertexte pour la section Compétences -->
           <li class="nav-item">
-            <a class="nav-link js-scroll" href="{{path('app_service')}}">La Boutique</a>
+            <a class="nav-link js-scroll" href="{{path('app_service')}}">Les Services</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll" href="{{path('app_comad_mc')}}">Vos Commandes</a>
@@ -130,7 +132,8 @@
                   </article>
                   <article class="myInfosFooter"> 
                   </article>
-                  <p class="titreMoinsImportant"><a href="https://bootstrapmade.com/">Design De STEVE-DANNER Avec Un Template de BootstrapMade</a></p>
+                  <p class="titreMoinsImportant"><a href="https://bootstrapmade.com/">Design De STEVE-DANNER Copyright ©Mai-2023
+                  </a></p>
                   <p class="texteMoinsImportant">Site Réalisé Avec Bootstrap Et jQuery.</p>
                 </div> <!-- Fi DIV myBlocAuteur -->
                 <h3>Droits D'Auteur Et Droits De Reproduction</h3>
@@ -208,6 +211,7 @@
   <!-- Contact Form JavaScript File -->
   <script src="{{asset('/contactform/contactform.js')}}"></script> 
   <script src="{{asset('/dist/jquery-ui.js')}}"></script>
+  
   <script>
     // Appel de la fonction jQuery "Accordion" appliquée sur l'élément HTML "myAccordeon" (footer)
     $( function() {

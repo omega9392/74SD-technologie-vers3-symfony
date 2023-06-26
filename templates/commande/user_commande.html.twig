@@ -1,0 +1,108 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Mon Commande{% endblock %}
+
+{% block body %}
+<style>
+img {
+    height: 40px;
+    margin-top: 0%;
+}
+img.produits {
+    width: 157px;
+    height: 117px;
+}
+img.moins{
+    
+    width: 25px;
+    height: 25px;
+}
+img.supp{
+    
+    width: 30px;
+    height: 30px;
+}
+table.table.mt-3 {
+    margin-left: 0%;
+    border: double;
+    background-color: #bb907791;
+        width: 93%;
+        border-color: darkgray;
+}
+
+</style>
+    <h1 align='center'>Mon Commande</h1>
+    <br>
+    Retrouvez l'ensemble des produits que vous avez ajouté à votre Commande.
+<br><br><br>
+
+ <table>
+  <tr>
+    <th>Nom :</th>
+    <th>Prénom</th>
+    <th>Email</th>
+    <th>Adresse</th>
+    <th>Téléphone</th>
+  </tr>
+  <tr>
+    <td>{{ commande_user.nom }}</td>
+    <td>{{ commande_user.prenom }}</td>
+    <td>{{ commande_user.email }}</td>
+    <td>{{ commande_user.adresse }}</td>
+    <td>{{ commande_user.telephone }}</td>
+  </tr>
+</table>
+
+
+     
+    {% if commandes|length > 0 %}
+    <br>
+        <table class="table mt-3">
+            <thead>
+            <tr>
+                <th scope="col">Produit</th>
+                <th scope="col"></th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set total = null %}
+            {% for product in commandes %}
+ 
+            <tr>
+                <th>
+                    <img class="produits" src="/uploads/photos/{{ product.produit.photo }}" alt="{{ product.produit.nom }}"  width: "200px" height="75px"><br/>
+                </th>
+                <td>
+                    {{ product.produit.nom }}<br/>
+                    {# <small>{{ product.produit.subtitle }}</small> #}
+                </td>
+                <td> 
+                      {{ product.quantity.quantity }}
+               
+                </td>
+                <td>{{ (product.produit.prix / 100)|number_format(2, ',', '.') }} €</td>
+                <td>{{ ((product.produit.prix * product.quantity.quantity ) / 100)|number_format(2, ',', '.') }} €</td>
+                <td>
+                   
+                </td>
+            </tr>
+                {% set total = total + (product.produit.prix * product.quantity.quantity) %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right mb-5">
+            <b>Nombre de produit :</b> {{ commandes|length }}<br/>
+            <b>Total de mon Commande :</b> {{ (total / 100)|number_format(2, ',', '.') }} €
+ 
+        </div>
+    {% else %}
+        <hr>
+         
+    {% endif %}
+    <br><br>
+{% endblock %}
+

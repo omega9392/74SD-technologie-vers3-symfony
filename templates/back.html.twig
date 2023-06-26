@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>https://www.74SD-technologie.fr/liste-contact.php</title>
+    <title>back-office 74SD-tecnhlogie</title>
     <!-- <link rel="stylesheet" href="css/liste.css"> -->
+   <link href="{{ asset('/img/SD74LoGo.png') }}" rel="icon">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
 
@@ -72,23 +73,41 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="{{('/css/offcanvas-navbar.css')}}" rel="stylesheet">
-    <link href="{{('/css/conect.css')}}" rel="stylesheet">
+    <link href="{{('/dist-css/css/offcanvas-navbar.css')}}" rel="stylesheet">
+    <link href="{{('/dist-css/conect.css')}}" rel="stylesheet">
     <link href="{{('/dist-css/liste.css')}}" rel="stylesheet">
   </head>
   <body class="bg-light">
     
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+      <img src="{{asset('/img/SD74LoGo.png')}}"  width="50" height="50"</a>
+
   <div class="container-fluid">
     <a class="navbar-brand" href="{{path('app_Accueil')}}">Retour a l'Accueil</a>
-    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarSideCollapse" aria-controls="navbarSideCollapse" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+      <span></span>
+      <span></span>
+      <span></span>
+        </button>
+    {# <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      
+    </button> #}
 
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{path('contact_list')}}">Liste-Contact</a>
+          <a class="nav-link active" aria-current="page" href="{{path('admin')}}">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{path('app_produit_index')}}">Liste-Produit</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{path('commande_liste')}}">Liste-Commande</a>
         </li>
         
         
@@ -112,11 +131,9 @@
  <br>
  <br>
  <br>
- <br>
- <br>
- <br>
+ 
  <footer>
-<p class="copyr">Copyright©-tous droits réservés-2023</p>
+<p class="copyr">Copyright ©Mai-2023</p>
     <script src="{{('/js/bootstrap.bundle.min.js')}}"></script>
 
       <script src="{{('/dist-js/offcanvas-navbar.js')}}"></script>
@@ -125,9 +142,6 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     </body>
 </html>

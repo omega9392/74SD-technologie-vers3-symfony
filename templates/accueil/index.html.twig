@@ -12,7 +12,7 @@
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="intro-title mb-4">74SD-Technologie</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Nos Montres Connectées, Nos Ordinateurs, Nos Batteries Externes, Nos Port USB, Nos Tablettes ,Vos Commandes Sécuriser</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items">Nos Montres Connectées, Nos Ordinateurs, Nos Batteries Externes, Nos Port USB, Nos Tablettes, Nos Smartphones, Nos Oreillettes Bluetooth, Nos Extras, Vos Commandes Sécuriser, Copyright ©Mai-2023</span><strong class="text-slider"></strong></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div> <!-- Fin du bloc DIV Container -->
       </div> <!-- Fin du bloc DIV table Cell-->
@@ -62,23 +62,29 @@
         </div>
       </div>
       <div class="row">
+      
+        {% for produit in produits %}
+        {% if produit.categorie == "Montres" %}
         <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
           <div class="work-box">
-            <a href="{{asset('/img/MONTRE_CONNECTEE-74.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 99,99€">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Montres-Connectées">
               <div class="work-img">
-                <img src="{{asset('/img/MONTRE_CONNECTEE-74.webp')}}" alt="" class="img-fluid">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">à 99,99€ seulement</h2>
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
                     </div>
                   </div>
                 </div>
@@ -86,18 +92,21 @@
             </a>
           </div>
         </div>
-        <div class="col-md-4">
+        {% endif %} 
+        {% endfor %}
+        
+        {# <div class="col-md-4">
           <div class="work-box">
-            <a href="{{asset('img/montre74-coneX.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 250,00€">
+            <a href="{{asset('img/Mc-74SD2.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 250,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-coneX.webp')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD2.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 250,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -112,16 +121,16 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{asset('/img/montre-74conex.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 89,00€">
+            <a href="{{asset('/img/Mc-74SD3.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 89,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre-74conex.webp')}}"  alt="" class="img-fluid img3">
+                <img src="{{asset('/img/Mc-74SD3.webp')}}"  alt="" class="img-fluid img3">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 89,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -136,16 +145,16 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{asset('/img/montre74-SD.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 120,00€">
+            <a href="{{asset('/img/Mc-74SD4.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 120,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-SD.gif')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD4.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 120,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -160,16 +169,16 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{asset('/img/montre-conex74.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 480,00€">
+            <a href="{{asset('/img/Mc-74SD5.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 480,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre-conex74.gif')}}" alt="" class="img-fluid img4">
+                <img src="{{asset('/img/Mc-74SD5.webp')}}" alt="" class="img-fluid img4">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title" >à 480,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -184,9 +193,9 @@
         </div>
         <div class="col-md-4">
           <div class="work-box">
-            <a href="{{asset('/img/montre74-deeeno.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 350,00€">
+            <a href="{{asset('/img/Mc-74SD6.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 350,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-deeeno.gif')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD6.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
@@ -205,7 +214,7 @@
               </div>
             </a>
           </div>
-        </div>
+        </div> #}
         
       </div>
     </div>
@@ -229,31 +238,39 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="{{asset('/img/PC-74-1.jpg')}}" data-lightbox="gallery-mf"  title="Ordinateurs-74SD  899,99€">
-                <div class="work-img">
-                  <img src="{{asset('/img/PC-74-1.jpg')}}" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">à 899,99€ seulement</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
-                      </div>
+          {% for produit in produits %}
+          {% if produit.categorie == "Ordinateurs" %}
+
+        <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos Ordinateurs">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
                     </div>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
-          <div class="col-md-4">
+        </div>
+        {% endif %} 
+        {% endfor %} 
+          {# <div class="col-md-4">
             <div class="work-box">
               <a href="{{asset('/img/PC-74-2.jpg')}}" data-lightbox="gallery-mf"  title="Ordinateurs-74SD  1250,00€">
                 <div class="work-img">
@@ -264,7 +281,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 1250,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -288,7 +305,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 1200,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -312,7 +329,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 1100,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -336,7 +353,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 950,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -360,7 +377,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 1300,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -375,7 +392,7 @@
           </div>
           
         </div>
-      </div>
+      </div> #}
     </section>
   <!--/ Section Ordinateurs End /-->
 
@@ -396,32 +413,40 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="{{asset('/img/baterie-74.webp')}}" data-lightbox="gallery-mf" title="batterie-74SD 25,00€">
-                <div class="work-img">
-                  <img src="{{asset('/img/baterie-74.webp')}}" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">à 25,00€ seulement</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
-                      </div>
+    <div class="row">
+          {% for produit in produits %}
+          {% if produit.categorie == "Batteries" %}
+
+        <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Batteries-Externes">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
                     </div>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
-          <div class="col-md-4">
+        </div>
+        {% endif %} 
+        {% endfor %} 
+          {# <div class="col-md-4">
             <div class="work-box">
               <a href="{{asset('/img/Batterie-Magn1-74.webp')}}" data-lightbox="gallery-mf" title="batterie-74SD 50,00€">
                 <div class="work-img">
@@ -432,7 +457,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 50,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -456,7 +481,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 89,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -480,7 +505,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à  60,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -504,7 +529,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à  80,00€ seulement et personnalisable</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -528,7 +553,7 @@
                     <div class="col-sm-8">
                       <h2 class="w-title">à 45,00€ seulement</h2>
                       <div class="w-more">
-                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                        <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -543,7 +568,7 @@
           </div>
           
         </div>
-      </div>
+      </div> #}
     </section>
   <!--/ Section Batterie externe End /-->
 
@@ -564,23 +589,29 @@
         </div>
       </div>
       <div class="row">
+          {% for produit in produits %}
+          {% if produit.categorie == "Port-USB" %}
+
         <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
           <div class="work-box">
-            <a href="{{asset('/img/port-USB-74.webp')}}" data-lightbox="gallery-mf" title="Port-USB-74SD  45,00€">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Port-USB">
               <div class="work-img">
-                <img src="{{asset('/img/port-USB-74.webp')}}" alt="" class="img-fluid">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">à 45,00€ seulement</h2>
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
                     </div>
                   </div>
                 </div>
@@ -588,7 +619,9 @@
             </a>
           </div>
         </div>
-        <div class="col-md-4">
+        {% endif %} 
+        {% endfor %} 
+        {# <div class="col-md-4">
           <div class="work-box">
             <a href="{{asset('/img/port-usb1-74.webp')}}" data-lightbox="gallery-mf" title="Port-USB-74SD  30,00€">
               <div class="work-img">
@@ -599,7 +632,7 @@
                   <div class="col-sm-8">
                     <h2 class="w-title">à 30,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -623,7 +656,7 @@
                   <div class="col-sm-8">
                     <h2 class="w-title">à 50,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -647,7 +680,7 @@
                   <div class="col-sm-8">
                     <h2 class="w-title">à 45,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -671,7 +704,7 @@
                   <div class="col-sm-8">
                     <h2 class="w-title">à 60,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -695,7 +728,7 @@
                   <div class="col-sm-8">
                     <h2 class="w-title">à 75,00€ seulement</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -710,7 +743,7 @@
         </div>
         
       </div>
-    </div>
+    </div> #}
   </section>
 <!--/ Section Port USB End /-->
 <!--/ Section tablettes Star /-->
@@ -730,31 +763,40 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="work-box">
-          <a href="{{asset('/img/tablette1-74SD.gif')}}" data-lightbox="gallery-mf" title="Tablettes-74SD  250,00€">
-            <div class="work-img">
-              <img src="{{asset('/img/tablette1-74SD.gif')}}" alt="" class="img-fluid">
-            </div>
-            <div class="work-content">
-              <div class="row">
-                <div class="col-sm-8">
-                  <h2 class="w-title">à 250,00€ seulement</h2>
-                  <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+      
+          {% for produit in produits %}
+          {% if produit.categorie == "Tablettes" %}
+
+        <div class="col-md-4">
+               <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Tablettes">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                    </div>
                   </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="w-like">
-                    <span class="ion-ios-plus-outline"></span>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
+        {% endif %} 
+        {% endfor %}
+      {# <div class="col-md-4">
         <div class="work-box">
           <a href="{{asset('/img/tablette2-74SD.gif')}}" data-lightbox="gallery-mf" title="Tablettes-74SD  350,00€">
             <div class="work-img">
@@ -765,7 +807,7 @@
                 <div class="col-sm-8">
                   <h2 class="w-title">à 350,00€ seulement</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -789,7 +831,7 @@
                 <div class="col-sm-8">
                   <h2 class="w-title">à 380,00€ seulement</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -813,7 +855,7 @@
                 <div class="col-sm-8">
                   <h2 class="w-title">à 260,00€ seulement</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -837,7 +879,7 @@
                 <div class="col-sm-8">
                   <h2 class="w-title">à 180,00€ seulement</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -861,7 +903,7 @@
                 <div class="col-sm-8">
                   <h2 class="w-title">à 62,99 € seulement</h2>
                   <div class="w-more">
-                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -876,9 +918,533 @@
       </div>
       
     </div>
-  </div>
+  </div> #}
 </section>
 <!--/ Section Tablettes End /-->
+<!--/ Section smartphones Star /-->
+<section id="work" class="portfolio-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">
+              Nos Smartphones
+          </h3>
+          <p class="subtitle-a">
+            Différents produits
+          </p>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for produit in produits %}
+          {% if produit.categorie == "Smartphones" %}
+
+        <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Smartphones">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endif %} 
+        {% endfor %}
+      {# <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/smart-74SD2.webp')}}" data-lightbox="gallery-mf" title="Smartphones-74SD  250,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/smart-74SD2.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 250,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/smart-74SD3.webp')}}" data-lightbox="gallery-mf" title="Smartphones-74SD  330,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/smart-74SD3.webp')}}"  alt="" class="img-fluid img3">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 330,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/smart-74SD4.webp')}}" data-lightbox="gallery-mf" title="Smartphones-74SD  160,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/smart-74SD4.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 160,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/smart-74SD5.webp')}}" data-lightbox="gallery-mf" title="Smartphones-74SD  180,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/smart-74SD5.webp')}}" alt="" class="img-fluid img4">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 180,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/smart-74SD6.webp')}}" data-lightbox="gallery-mf" title="Smartphones-74SD  200,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/smart-74SD6.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 200,00 € seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div> #}
+</section>
+<!--/ Section Smartphones End /-->
+<!--/ Section oreillettes Star /-->
+<section id="work" class="portfolio-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">
+              Nos Oreillettes Bluetooth
+          </h3>
+          <p class="subtitle-a">
+            Différents produits
+          </p>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+           {% for produit in produits %}
+          {% if produit.categorie == "Oreillettes" %}
+
+        <div class="col-md-4">
+           <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}   
+
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Oreillettes-Bluetooth">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endif %} 
+        {% endfor %}
+      {# <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/oreil-74SD2.webp')}}" data-lightbox="gallery-mf" title="Oreillette-74SD  35,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/oreil-74SD2.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 35,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/oreil-74SD3.webp')}}" data-lightbox="gallery-mf" title="Oreillette-74SD  80,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/oreil-74SD3.webp')}}"  alt="" class="img-fluid img3">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 80,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/oreil-74SD4.webp')}}" data-lightbox="gallery-mf" title="Oreillette-74SD  60,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/oreil-74SD4.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 60,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/oreil-74SD5.webp')}}" data-lightbox="gallery-mf" title="Oreillette-74SD  20,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/oreil-74SD5.webp')}}" alt="" class="img-fluid img4">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 20,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/oreil-74SD6.webp')}}" data-lightbox="gallery-mf" title="Oreillette-74SD  15,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/oreil-74SD6.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 15,00 € seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div> #}
+</section>
+<!--/ Section Oreillettes End /-->
+<!--/ Section extras Star /-->
+<section id="work" class="portfolio-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="title-box text-center">
+          <h3 class="title-a">
+              Nos Extras
+          </h3>
+          <p class="subtitle-a">
+            Différents produits
+          </p>
+          <div class="line-mf"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+                {% for produit in produits %}
+          {% if produit.categorie == "Extras" %}
+
+        <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}   
+
+          <div class="work-box">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Extras">
+              <div class="work-img">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
+              </div>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
+                    <div class="w-more">
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endif %} 
+        {% endfor %}
+      {# <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/extra-74SD2.webp')}}" data-lightbox="gallery-mf" title="Extra-74SD  65,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/extra-74SD2.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 65,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/extra-74SD3.webp')}}" data-lightbox="gallery-mf" title="Extra-74SD  45,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/extra-74SD3.webp')}}"  alt="" class="img-fluid img3">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 45,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/extra-74SD4.webp')}}" data-lightbox="gallery-mf" title="Extra-74SD  40,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/extra-74SD4.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 40,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/extra-74SD5.webp')}}" data-lightbox="gallery-mf" title="Extra-74SD  80,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/extra-74SD5.webp')}}" alt="" class="img-fluid img4">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 80,00€ seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="work-box">
+          <a href="{{asset('/img/extra-74SD6.webp')}}" data-lightbox="gallery-mf" title="Extra-74SD  75,00€">
+            <div class="work-img">
+              <img src="{{asset('/img/extra-74SD6.webp')}}" alt="" class="img-fluid">
+            </div>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">à 75,00 € seulement</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <span class="ion-ios-plus-outline"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div> #}
+</section>
+<!--/ Section Extras End /-->
   <!--/ Section Testimonials Star /-->
   <div class="testimonials paralax-mf bg-image" style="background-image: url(img/exosquellette-74.gif)">
     <div class="overlay-mf"></div>

@@ -1,0 +1,93 @@
+{# {% extends 'back.html.twig' %}
+
+
+{% block title %}Produit{% endblock %}
+
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+   <h1>Produit</h1>
+<br>
+<br>
+<br>
+
+
+   <table class="tab">
+       <tbody>
+           <tr>
+               <th>Id</th>
+               <td>{{ produit.id }}</td>
+           </tr>
+           <tr>
+               <th>Nom</th>
+               <td>{{ produit.nom }}</td>
+           </tr>
+           <tr>
+               <th>Description</th>
+               <td>{{ produit.description }}</td>
+           </tr>
+           <tr>
+               <th>Photo</th>
+               <td>
+                 {% if produit.photo %}
+                       <img src="{{ asset('uploads/photos/' ~ produit.photo) }}" alt="Photo du produit" width="20%" height="20%">
+                   {% else %}
+                       Aucune photo disponible
+                   {% endif %}
+               </td>
+              
+           </tr>
+       </tbody>
+   </table>
+<br>
+<br>
+<br>
+   {{ include('produit/_delete_form.html.twig') }}
+
+   <a href="{{ path('app_produit_index') }}">Retour à la liste</a>
+
+
+   
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{produit.nom}}{% endblock %}
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+     <h1> {{produit.nom}} </h1>
+
+     <div class="row">
+              <div class="col-md-4">
+
+              <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="{{produit.nom}}" class="img-fluid" width="250px" height="250px">
+              </div>
+
+            <div class="col-md-8">
+                   <h3>{{produit.nom}}</h3>
+                   <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span>
+               <hr>
+               <p>{{produit.description}}</p> 
+               <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" class="btn btn-primary">Ajoutez au panier</a>
+             </div>
+           </div>
+
+       </div>
+
+ {% endblock %}                 

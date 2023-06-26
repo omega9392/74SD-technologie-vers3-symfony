@@ -1,0 +1,71 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Mon panier - 74SD-tecnologie{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h1>MON PANIER</h1>
+<hr>
+
+   <table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Produit</th>
+      <th scope="col"></th>
+      <th scope="col">Quantitée</th>
+      <th scope="col"></th>
+      <th scope="col">Prix</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% set total = null %}
+  {% for produit in cart %} 
+  
+  
+ 
+
+    <tr>
+      <th scope="row">
+      <img src="/uploads/photos/{{produit.produit.photo}}" alt="{{produit.produit.nom}}" height="75px"><br>
+      </th>
+      <td>
+      {{produit.produit.nom}}<br>
+      <small>{{produit.produit.description}}</small>
+      </td>
+      <td>
+                    <a href="{{ path('app_decrease_to_cart', { 'id' : produit.produit.id }) }}">
+                        <img src="{{ asset('uploads/photos/minus.png') }}" height="18px" alt="Retirer une quantité à mon produit">
+                    </a>
+                    x {{ produit.quantity }}
+                    <a href="{{ path('app_add_to_cart', { 'id' : produit.produit.id }) }}">
+                        <img src="{{ asset('uploads/photos/plus.png') }}" height="18px" alt="Ajouter un produit">
+                    </a>
+       </td>
+
+      <td>{{produit.quantity}} </td>
+      <td>{{(produit.produit.prix / 100)|number_format(2,',',',')}}€</td>
+      <td>{{((produit.produit.prix * produit.quantity) / 100)|number_format(2,',',',')}}€</td>
+      <td>
+      <a href="{{path('app_delete_to_cart' , {'id' : produit.produit.id})}}">
+      <img src="{{asset('uploads/photos/delete.png')}}" height="18px" alt="Supprimer mon panier">
+      </a>
+      </td>
+    </tr>
+    {% set total = total + (produit.produit.prix * produit.quantity)%}
+    {% endfor %}
+  </tbody>
+</table>
+<div class="text-rigth mb-5">
+      <b>Nombre de produit:</b>{{cart|length}}<br>
+      <b>Total de mon panier:</b>{{(total / 100)|number_format(2,',',',')}}€
+      <a href="{{path('commande_creer')}}" class="button button-a button-big button-rouded">Valider mon panier</a>
+</div>      
+   {% endblock %}
+
+
+   

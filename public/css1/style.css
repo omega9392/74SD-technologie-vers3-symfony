@@ -5,7 +5,7 @@
 
 body {
   background-color: #f5f5f5;
-  color: #4e4e4e;
+  color: #fff9f9;
 }
 
 h1,
@@ -14,11 +14,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: #1e1e1e;
+  color: #938686;
 }
 
 a {
-  color: #1e1e1e;
+  color: #e75915;
   transition: all 0.5s ease-in-out;
 }
 
@@ -210,7 +210,10 @@ a:hover {
 .socials ul li {
   display: inline-block;
 }
-
+/* .recap{
+  margin-left: 10%;
+  margin-top: 5px;
+} */
 .socials .ico-circle {
   height: 40px;
   width: 40px;
@@ -422,7 +425,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link,
 .navbar-b.navbar-reduce .nav-link {
-  color: #fff;
+  color: #8b8383;
   text-transform: uppercase;
   font-weight: 600;
 }

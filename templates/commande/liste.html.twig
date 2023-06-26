@@ -1,0 +1,39 @@
+{% extends 'back.html.twig' %}
+
+{% block body %}
+    <h1>Liste des commandes</h1>
+    
+    {% if commandes is empty %}
+        <p>Aucune commande trouvée.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Panier</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for commande in commandes %}
+                    <tr>
+                        <td>{{ commande.id }}</td>
+                        <td>{{ commande.nom }}</td>
+                        <td>{{ commande.prenom }}</td>
+                        <td>{{ commande.email }}</td>
+                        <td>{{ commande.adresse }}</td>
+                        <td>{{ commande.telephone }}</td>
+                        <td>{{ commande.cart | json_encode }}</td>
+                    <td>  <button> <a href="{{ path('user_commande_liste', {id: commande.id}) }}" class="btn btn-primary">Afficher</a></button></td>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+   <h1>Liste-Produit</h1>
+
+
+ <table >
+   <thead>
+       <tr>
+           <th class="text-center">Id</th>
+           <th>Nom</th>
+           <th>Description</th>
+           <th text-align="center">Photo</th>
+           <th class="text-center">Actions</th>
+       </tr>
+   </thead>
+   <tbody>
+   {% for produit in produits %}
+       <tr>
+           <td class="text-center">{{ produit.id }}</td>
+           <td>{{ produit.nom }}</td>
+           <td>{{ produit.description }}</td>
+           <td class="text-center">  
+
+
+               {% if produit.photo %}
+<img src="{{ asset('uploads/photos/' ~ produit.photo) }}" alt="Photo du produit" class="img-thumbnail" width="15%" height="15%" class="img-fluid">
+               {% else %}
+                   Aucune photo disponible
+               {% endif %}
+           </td>
+           <td class="text-center">
+               <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-sm btn-primary">Voir</a>
+               <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-sm btn-warning">Modifier</a>
+           </td>
+
+
+           
+       </tr>
+   {% else %}
+       <tr>
+           <td colspan="5" class="text-center">Aucun produit trouvé.</td>
+       </tr>
+   {% endfor %}
+   </tbody>
+</table>
+
+
+ 
+
+
+{% endblock %}
+
+
+

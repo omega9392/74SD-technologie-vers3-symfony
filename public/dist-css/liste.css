@@ -1,18 +1,30 @@
-*{
+/* *{
     background-color: rgb(88, 84, 84);
-}
+} */
 
 table {
     margin-left: 10%;
-    margin-top: 100px;
-    border: 2px solid rgb(55, 52, 57);
+    margin-top: 250px;
+    border: 2px solid rgb(240, 114, 4);
     background: #84827f;
     color: white;
     
-    font-size: 20px;
+    font-size: 18px;
     width: 80%;
     height: 50%;
-    box-shadow: 8px 15px 32px #333;
+    box-shadow: 8px 15px 32px #0f0f0f;
+}
+.tab{
+    margin-left: 10%;
+    margin-top: 250px;
+    border: 2px solid rgb(237, 52, 10);
+    background: #84827f;
+    color: white;
+    
+    font-size: 18px;
+    width: 80%;
+    height: 50%;
+    box-shadow: 8px 15px 32px #100f0f;
 }
 .liste {
     /* margin-top: 65px; */
@@ -29,8 +41,8 @@ a{
     text-align: center;
     font-size: 30px;
     font-family: georgia;
-    color: rgb(243, 241, 241);
-    margin-top: 450px;
+    color: rgb(246, 91, 13);
+    margin-top: 10px;
 }
 nav {
     display: flex;
@@ -42,8 +54,9 @@ nav a {
     padding-top: 12px;
     text-decoration: none;
 }
-th{
+.text-center th {
     font-family: georgia;
+    text-align: center;
 
 }
 td {

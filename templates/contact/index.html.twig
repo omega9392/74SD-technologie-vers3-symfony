@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}https://www.74SD-technologie.fr{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
    <!--/ Le bloc affichage de l'image de fond de page  /-->
@@ -12,7 +12,7 @@
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="intro-title mb-4">74SD-Technologie</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Contacter Nous, Art Design, Copyright ©Décembre-2022-2023</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items">Contacter Nous, Art Design, Copyright ©Mai-2023</span><strong class="text-slider"></strong></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div> <!-- Fin du bloc DIV Container -->
       </div> <!-- Fin du bloc DIV table Cell-->
@@ -39,37 +39,33 @@
            </div>
        {% endfor %} 
                   <div>
-                      <form action="" method="post" role="form" class="contactForm">
+                      {# <form action="" method="post" role="form" class="contactForm"> #}
+         {{ form_start(form) }}
                       <div id="sendmessage">Votre Message A Bien Eté Envoyer. Merci!</div>
                       <div id="errormessage"></div>
                       <div class="row">
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-           {# <div class="col-md-12 mb-3"> #}
+           
            {{ form_widget(form.nom, { attr: { class:"form-control", placeholder: "Votre Nom Et Prénoms"} })   }}
-           {# </div>                             #}
+                               
            <div class="validation"></div>
                           </div>
                         </div>
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-           {# <div class="col-md-12 mb-3"> #}
+          
            {{ form_widget(form.email, { attr: {class:"form-control", placeholder: "Votre Email"  } }) }}
-           {# </div>                             #}
+                               
            <div class="validation"></div>
                           </div>
                         </div>
-                        {# <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input pattern="[a-zA-Z ]{20,60}" title="Veuillez écrire un minum de 20 caractéres"  type="text" class="form-control" name="subject" id="subject" placeholder="Sujet"  />
-                              <div class="validation"></div>
-                            </div>
-                        </div> #}
+                       
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
-            {# <div class="col-md-12 mb-3">  #}
+            
            {{ form_widget(form.message, { attr: {class:"form-control", placeholder: "Message :"  } }) }}
-           {# </div>                             #}
+                               
            <div class="validation"></div>
                           </div>
                         </div>
@@ -78,7 +74,8 @@
                         </div>
                         
                       </div>
-                    </form>
+                      {{ form_end(form) }}
+                    {# </form> #}
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -106,6 +103,9 @@
                       <li><a href="https://twitter.com/"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
                       <li><a href="https://www.pinterest.fr/"><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
                     </ul>
+                    <div class="recap">
+                    <iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfW1P8hAAAAABmCCcRfxSBHviApn-8NRtz5rSQ8&amp;co=aHR0cHM6Ly93d3cuYnJvY2tzbS5mcjo0NDM.&amp;hl=fr&amp;v=CDFvp7CXAHw7k3HxO47Gm1O9&amp;size=normal&amp;cb=us6eibs6v9x4" width="304" height="78" role="presentation" name="a-l2idr04c62c7" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -114,28 +114,6 @@
         </div>
       </div>
     </div>
-{# <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input pattern="[a-zA-Z ]{20,60}" title="Veuillez écrire un minum de 20 caractéres"  type="text" class="form-control" name="subject" id="subject" placeholder="Sujet"  />
-                              <div class="validation"></div>
-                            </div>
-                        </div> #}
+ 
 
- {# {% for message in app.flashes('message') %}
-           <div class="alert alert-success">
-               {{ message }}
-           </div>
-       {% endfor %} #}
-       {# {{ form_start(form) }}
-           <div class="col-md-12 mb-3">
-           {{ form_widget(form.nom, { attr: { placeholder: "Nom :"  } })   }}
-           </div>
-           <div class="col-md-12 mb-3">
-           {{ form_widget(form.email, { attr: { placeholder: "Email :"  } }) }}
-           </div>
-           <div class="col-md-12 mb-3"> 
-           {{ form_widget(form.message, { attr: { placeholder: "Message :"  } }) }}
-           </div>
-           <button class="col-md-12">{{ button_label|default('Envoyer') }}</button>
-       {{ form_end(form) }} #}
 {% endblock %}

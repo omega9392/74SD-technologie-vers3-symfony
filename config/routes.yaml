@@ -1,3 +1,22 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+#panier_index:
+#    path: /panier
+#    controller: App\Controller\PanierController::index
+
+#panier_add:
+#    path: /panier/add/{id}
+#    controller: App\Controller\PanierController::add
+
+#panier_delete:
+#    path: /panier/delete/{id}
+#    controller: App\Controller\PanierController::delete
+
+#admin_panier_index:
+#   path: /admin/panier
+#   controller: App\Controller\PanierController::adminIndex
+
+#admin_panier_delete:
+#   path: /admin/panier/delete/{id}
+#   controller: App\Controller\PanierController::adminDelete

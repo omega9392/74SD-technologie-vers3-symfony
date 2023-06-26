@@ -1,6 +1,6 @@
 {% extends 'basemc.html.twig' %}
 
-{% block title %}https://www.74SD-technologie.fr{% endblock %}
+{% block title %}Les montres connectées{% endblock %}
 
 {% block body %}
 
@@ -13,7 +13,7 @@
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="intro-title mb-4">74SD-Technologie</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Les montres Connectées, Votre Commande Sécuriser, Art Design, Copyright ©Décembre-2022-2023</span><strong class="text-slider"></strong></p>
+          <p class="intro-subtitle"><span class="text-slider-items">Les montres Connectées, Votre Commande Sécuriser, Art Design, Copyright ©Mai-2023</span><strong class="text-slider"></strong></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div> <!-- Fin du bloc DIV Container -->
       </div> <!-- Fin du bloc DIV table Cell-->
@@ -50,23 +50,28 @@
         </div>
       </div>
       <div class="row">
+        {% for produit in produits %}
+        {% if produit.categorie == "Montres" %}
         <div class="col-md-4">
+              <a href="{{ path('app_add_to_cart' ,{'id' : produit.id} )}}" >
+              <img src="{{ asset('uploads/photos/cart.png') }}" height="25px" alt="Ajoutez au panier">
+              </a>
+{# <span class="ion-ios-plus-outline" height="18px"></span> #}
           <div class="work-box">
-            <a href="{{asset('/img/MONTRE_CONNECTEE-74.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 99,99€">
+            <a href="{{ asset('uploads/photos/' ~ produit.photo)}}" data-lightbox="gallery-mf" title="Nos-Montres-Connectées">
               <div class="work-img">
-                <img src="{{asset('/img/MONTRE_CONNECTEE-74.webp')}}" alt="" class="img-fluid">
+                <img src="{{ asset('uploads/photos/' ~ produit.photo)}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">à 99,99€ seulement</h2>
+                    <h2 class="w-title">{{produit.nom}}     <span>{{ (produit.prix / 100)|number_format(2,',',',')}}€<span></h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <span class="ion-ios-plus-outline"></span>
                     </div>
                   </div>
                 </div>
@@ -74,18 +79,24 @@
             </a>
           </div>
         </div>
-        <div class="col-md-4">
+        {% endif %} 
+        {% endfor %}
+        
+        {# <div class="col-md-4">
+        <a href="{{path('cart')}}" class="btn btn-primary">Ajoutez au panier</a>
+
           <div class="work-box">
-            <a href="{{asset('img/montre74-coneX.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 250,00€">
+            <a href="{{asset('img/Mc-74SD2.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 250,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-coneX.webp')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD2.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 250,00€ seulement</h2>
+
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -99,22 +110,27 @@
           </div>
         </div>
         <div class="col-md-4">
+        <a href="{{path('cart')}}" class="btn btn-primary">Ajoutez au panier</a>
+
           <div class="work-box">
-            <a href="{{asset('/img/montre-74conex.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 89,00€">
+            <a href="{{asset('/img/Mc-74SD3.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 89,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre-74conex.webp')}}"  alt="" class="img-fluid img3">
+                <img src="{{asset('/img/Mc-74SD3.webp')}}"  alt="" class="img-fluid img3">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 89,00€ seulement</h2>
+
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
+
                     </div>
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
                       <span class="ion-ios-plus-outline"></span>
+
                     </div>
                   </div>
                 </div>
@@ -123,17 +139,20 @@
           </div>
         </div>
         <div class="col-md-4">
+        <a href="{{path('cart')}}" class="btn btn-primary">Ajoutez au panier</a>
+
           <div class="work-box">
-            <a href="{{asset('/img/montre74-SD.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 120,00€">
+            <a href="{{asset('/img/Mc-74SD4.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 120,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-SD.gif')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD4.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 120,00€ seulement</h2>
+
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -147,17 +166,20 @@
           </div>
         </div>
         <div class="col-md-4">
+        <a href="{{path('cart')}}" class="btn btn-primary">Ajoutez au panier</a>
+
           <div class="work-box">
-            <a href="{{asset('/img/montre-conex74.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 480,00€">
+            <a href="{{asset('/img/Mc-74SD5.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 480,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre-conex74.gif')}}" alt="" class="img-fluid img4">
+                <img src="{{asset('/img/Mc-74SD5.webp')}}" alt="" class="img-fluid img4">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title" >à 480,00€ seulement</h2>
+
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -171,17 +193,20 @@
           </div>
         </div>
         <div class="col-md-4">
+        <a href="{{path('cart')}}" class="btn btn-primary">Ajoutez au panier</a>
+
           <div class="work-box">
-            <a href="{{asset('/img/montre74-deeeno.gif')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 350,00€">
+            <a href="{{asset('/img/Mc-74SD6.webp')}}" data-lightbox="gallery-mf" title="Montre-connectées-74SD 350,00€">
               <div class="work-img">
-                <img src="{{asset('/img/montre74-deeeno.gif')}}" alt="" class="img-fluid">
+                <img src="{{asset('/img/Mc-74SD6.webp')}}" alt="" class="img-fluid">
               </div>
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">à 350,00€ seulement</h2>
+
                     <div class="w-more">
-                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Décembre-2022-2023</span>
+                      <span class="w-ctegory">Art Design</span> / <span class="w-date">Copyright ©Mai-2023</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -196,7 +221,7 @@
         </div>
         
       </div>
-    </div>
+    </div> #}
   </section>
   <!--/ Section Montres Connecté End /-->
   <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(/img/exosquellette-74.gif)">
